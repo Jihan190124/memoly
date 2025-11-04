@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background: linear-gradient(135deg, #87CEEB, #98FB98, #FFD700);
+  font-family: 'Arial', sans-serif;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23ffffff" opacity="0.1"/></svg>');
+  pointer-events: none;
+}
+
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(45deg, #4ec0ca, #70c5ce, #87CEEB);
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Responsive adjustments for UI elements */
+@media (max-width: 767px) {
+  #scoreBox {
+    font-size: 2rem;
+  }
+  #restart {
+    font-size: 1.5rem;
+    padding: 12px 25px;
+  }
+}
+
+#scoreBox {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 3px 3px 6px #000, 0 0 10px #FFD700;
+  font-weight: bold;
+  z-index: 2;
+}
+
+#restart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(45deg, #ff4444, #ff6666);
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border: 3px solid #fff;
+  padding: 15px 30px;
+  border-radius: 15px;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 8px 20px rgba(255,0,0,0.8), inset 0 0 10px rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+#restart:hover {
+  background: linear-gradient(45deg, #ff0000, #ff3333);
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 10px 25px rgba(255,0,0,1), inset 0 0 15px rgba(255,255,255,0.3);
+}
