@@ -1,5 +1,5 @@
 // Game constants
-const PIPE_GAP = 250; // Increased from 130 for more spacing
+const PIPE_GAP = 350; // Even more increased for better spacing
 let PIPE_WIDTH;
 const PIPE_SPEED = 2.5;
 const GRAVITY = 0.3; // Adjusted for better physics
@@ -157,10 +157,9 @@ function loop() {
     frames++;
     requestAnimationFrame(loop);
   } else {
-    // Game over screen
+
     ctx.fillStyle = "rgba(0, 0, 0, 0.8)";
     ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    // Resize winner banner without cropping
     const bannerAspect = winnerImg.width / winnerImg.height;
     const bannerWidth = 300;
     const bannerHeight = bannerWidth / bannerAspect;
@@ -174,8 +173,6 @@ function loop() {
     restartBtn.style.top = `${CANVAS_HEIGHT / 2 + bannerHeight / 2 + 50}px`; // Position below banner
   }
 }
-
-// Event listeners
 window.addEventListener("keydown", e => {
   if (e.code === "Space" && !gameOver) bird.flap();
 });
@@ -195,18 +192,13 @@ restartBtn.addEventListener("click", () => {
   scoreBox.textContent = `Score: 0`;
   loop();
 });
-
-// Update canvas dimensions on resize
 function updateCanvasSize() {
   CANVAS_WIDTH = window.innerWidth;
   CANVAS_HEIGHT = window.innerHeight;
   canvas.width = CANVAS_WIDTH;
   canvas.height = CANVAS_HEIGHT;
-  PIPE_WIDTH = CANVAS_WIDTH * 0.15; // Pipe width as percentage of screen width (increased for thickness)
+  PIPE_WIDTH = CANVAS_WIDTH * 0.15;
 }
-
 window.addEventListener('resize', updateCanvasSize);
 updateCanvasSize();
-
-// Start game
 loop();
