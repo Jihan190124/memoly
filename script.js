@@ -1,5 +1,5 @@
 // Game constants
-const PIPE_GAP = 180; // Increased from 130 for more spacing
+const PIPE_GAP = 250; // Increased from 130 for more spacing
 let PIPE_WIDTH;
 const PIPE_SPEED = 2.5;
 const GRAVITY = 0.3; // Adjusted for better physics
